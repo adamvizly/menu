@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shiraz Garden - Persian Cuisine</title>
+    
+    <!-- Tailwind CSS for styling -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Lalezar&family=Vazirmatn:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+            /* Default background with doodle pattern and a light gray base */
+            background-color: #E5E7EB; /* gray-200 */
+            background-image: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), url('doodle-menu-bg.png');
+            background-size: auto;
+            background-repeat: repeat;
+            background-position: center;
+            background-attachment: fixed;
+            transition: all 0.3s ease-in-out;
+        }
+        
+        /* Styles for Right-to-Left (Persian) */
+        html[dir="rtl"] body {
+            font-family: 'Vazirmatn', sans-serif;
+        }
+        html[dir="rtl"] .logo-font {
+             font-family: 'Lalezar', cursive;
+        }
+        html[dir="rtl"] .menu-item > div {
+            text-align: right;
+        }
+        
+        .logo-font {
+            font-family: 'Lalezar', cursive;
+        }
+        .menu-item-description {
+            color: #4b5563; /* gray-600 for good contrast on light background */
+        }
+        .price {
+            color: #ca8a04; /* A rich, darker gold for better contrast */
+        }
+        .menu-item {
+            border-bottom: 1px solid #d1d5db; /* Lighter gray border */
+            padding-bottom: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        .menu-item:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <div class="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
+
+        <!-- Header Section with Logo and Controls -->
+        <header class="text-center mb-12 relative">
+            <h1 class="logo-font text-5xl md:text-7xl text-gray-900 drop-shadow-lg tracking-wider" data-key="title">Shiraz Garden</h1>
+            <p class="text-lg text-gray-600 mt-2" data-key="subtitle">Authentic Persian Cuisine</p>
+            
+            <!-- Control Buttons -->
+            <div class="absolute top-0 right-0 flex flex-col sm:flex-row gap-2">
+                <button id="lang-toggle" data-key="toggle_lang" class="bg-amber-500 text-white font-bold py-2 px-4 rounded-lg hover:bg-amber-600 transition-colors text-sm">فارسی</button>
+            </div>
+        </header>
+
+        <!-- Main Menu Grid -->
+        <main class="grid grid-cols-1 lg:grid-cols-3 gap-x-12 gap-y-10">
+
+            <!-- Left Menu Column (Main Courses) -->
+            <div class="lg:col-span-1">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 inline-block" data-key="main_courses">Main Courses</h2>
+                
+                <div class="menu-item flex items-start gap-4">
+                    <img src="https://placehold.co/100x100/eab308/3f3f46?text=Kebab" alt="Chelow Kebab Koobideh" class="w-20 h-20 rounded-full object-cover border-2 border-gray-400 flex-shrink-0">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="kebab_name">Kebab Koobideh</h3>
+                            <p class="text-xl font-bold price">$18.00</p>
+                        </div>
+                        <p class="menu-item-description text-sm mt-1" data-key="kebab_desc">Two skewers of seasoned ground beef, grilled to perfection. Served with saffron basmati rice.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item flex items-start gap-4">
+                    <img src="https://placehold.co/100x100/eab308/3f3f46?text=Sabzi" alt="Ghormeh Sabzi" class="w-20 h-20 rounded-full object-cover border-2 border-gray-400 flex-shrink-0">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="sabzi_name">Ghormeh Sabzi</h3>
+                            <p class="text-xl font-bold price">$17.50</p>
+                        </div>
+                        <p class="menu-item-description text-sm mt-1" data-key="sabzi_desc">A fragrant herb stew with tender beef, kidney beans, and dried lime. Served with rice.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item flex items-start gap-4">
+                    <img src="https://placehold.co/100x100/eab308/3f3f46?text=Fesenjan" alt="Fesenjan" class="w-20 h-20 rounded-full object-cover border-2 border-gray-400 flex-shrink-0">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="fesenjan_name">Fesenjan</h3>
+                            <p class="text-xl font-bold price">$19.00</p>
+                        </div>
+                        <p class="menu-item-description text-sm mt-1" data-key="fesenjan_desc">A sweet and savory walnut and pomegranate stew with chicken. Served with rice.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Center Column for Specials -->
+            <div class="lg:col-span-1">
+                <div class="bg-teal-800 bg-opacity-90 text-white p-6 rounded-lg shadow-2xl">
+                    <h2 class="text-3xl font-bold text-center text-amber-300 mb-6" data-key="specials">Chef's Specials</h2>
+                    
+                    <div class="menu-item border-teal-400">
+                        <img src="https://placehold.co/400x200/eab308/3f3f46?text=Special+1" alt="Baghali Polo" class="w-full h-40 rounded-lg object-cover mb-4">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="baghali_name">Baghali Polo</h3>
+                            <p class="text-xl font-bold text-amber-300">$24.00</p>
+                        </div>
+                        <p class="text-teal-100 text-sm mt-1" data-key="baghali_desc">Tender lamb shank served with fragrant dill and fava bean basmati rice.</p>
+                    </div>
+
+                    <div class="menu-item border-teal-400">
+                        <img src="https://placehold.co/400x200/eab308/3f3f46?text=Special+2" alt="Zereshk Polo" class="w-full h-40 rounded-lg object-cover mb-4">
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="zereshk_name">Zereshk Polo</h3>
+                            <p class="text-xl font-bold text-amber-300">$21.00</p>
+                        </div>
+                        <p class="text-teal-100 text-sm mt-1" data-key="zereshk_desc">Saffron chicken served with basmati rice and sweet and sour barberries.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Menu Column -->
+            <div class="lg:col-span-1">
+                <h2 class="text-3xl font-bold border-b-2 border-amber-500 pb-2 mb-6 inline-block" data-key="appetizers">Appetizers</h2>
+                
+                <div class="menu-item flex items-start gap-4">
+                    <img src="https://placehold.co/100x100/eab308/3f3f46?text=Kashk" alt="Kashk-e-Bademjan" class="w-20 h-20 rounded-full object-cover border-2 border-gray-400 flex-shrink-0">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="kashk_name">Kashk-e-Bademjan</h3>
+                            <p class="text-xl font-bold price">$9.00</p>
+                        </div>
+                        <p class="menu-item-description text-sm mt-1" data-key="kashk_desc">A savory dip of fried eggplant, whey, and crispy onions. Served with flatbread.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item flex items-start gap-4">
+                    <img src="https://placehold.co/100x100/eab308/3f3f46?text=Mast" alt="Mast-o-Khiar" class="w-20 h-20 rounded-full object-cover border-2 border-gray-400 flex-shrink-0">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="mast_name">Mast-o-Khiar</h3>
+                            <p class="text-xl font-bold price">$7.00</p>
+                        </div>
+                        <p class="menu-item-description text-sm mt-1" data-key="mast_desc">A refreshing yogurt and cucumber dip with mint and herbs.</p>
+                    </div>
+                </div>
+
+                <div class="menu-item flex items-start gap-4">
+                    <img src="https://placehold.co/100x100/eab308/3f3f46?text=Tahdig" alt="Tahdig" class="w-20 h-20 rounded-full object-cover border-2 border-gray-400 flex-shrink-0">
+                    <div>
+                        <div class="flex justify-between items-baseline">
+                            <h3 class="text-xl font-bold" data-key="tahdig_name">Tahdig</h3>
+                            <p class="text-xl font-bold price">$10.00</p>
+                        </div>
+                        <p class="menu-item-description text-sm mt-1" data-key="tahdig_desc">Crispy saffron rice from the bottom of the pot. A Persian delicacy!</p>
+                    </div>
+                </div>
+            </div>
+        </main>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-16 text-gray-500 text-sm">
+            <p data-key="footer">Shiraz Garden | 123 Saffron Road, Tehran | (555) 987-6543</p>
+        </footer>
+    </div>
+
+    <script>
+        // --- Translations Object ---
+        const translations = {
+            en: {
+                title: "Shiraz Garden",
+                subtitle: "Authentic Persian Cuisine",
+                main_courses: "Main Courses",
+                kebab_name: "Kebab Koobideh",
+                kebab_desc: "Two skewers of seasoned ground beef, grilled to perfection. Served with saffron basmati rice.",
+                sabzi_name: "Ghormeh Sabzi",
+                sabzi_desc: "A fragrant herb stew with tender beef, kidney beans, and dried lime. Served with rice.",
+                fesenjan_name: "Fesenjan",
+                fesenjan_desc: "A sweet and savory walnut and pomegranate stew with chicken. Served with rice.",
+                specials: "Chef's Specials",
+                baghali_name: "Baghali Polo",
+                baghali_desc: "Tender lamb shank served with fragrant dill and fava bean basmati rice.",
+                zereshk_name: "Zereshk Polo",
+                zereshk_desc: "Saffron chicken served with basmati rice and sweet and sour barberries.",
+                appetizers: "Appetizers",
+                kashk_name: "Kashk-e-Bademjan",
+                kashk_desc: "A savory dip of fried eggplant, whey, and crispy onions. Served with flatbread.",
+                mast_name: "Mast-o-Khiar",
+                mast_desc: "A refreshing yogurt and cucumber dip with mint and herbs.",
+                tahdig_name: "Tahdig",
+                tahdig_desc: "Crispy saffron rice from the bottom of the pot. A Persian delicacy!",
+                footer: "Shiraz Garden | 123 Saffron Road, Tehran | (555) 987-6543",
+                toggle_lang: "فارسی"
+            },
+            fa: {
+                title: "باغ شیراز",
+                subtitle: "غذاهای اصیل ایرانی",
+                main_courses: "غذاهای اصلی",
+                kebab_name: "کباب کوبیده",
+                kebab_desc: "دو سیخ کباب گوشت چرخ کرده، پخته شده روی آتش. همراه با برنج زعفرانی.",
+                sabzi_name: "قورمه سبزی",
+                sabzi_desc: "خورشت سبزی معطر با گوشت گوساله، لوبیا قرمز و لیمو عمانی. همراه با برنج.",
+                fesenjan_name: "فسنجان",
+                fesenjan_desc: "خورشت شیرین و ملس گردو و انار با مرغ. همراه با برنج.",
+                specials: "ویژه سرآشپز",
+                baghali_name: "باقالی پلو با گوشت",
+                baghali_desc: "ماهیچه گوسفندی نرم پخته شده با برنج شوید و باقالی.",
+                zereshk_name: "زرشک پلو با مرغ",
+                zereshk_desc: "مرغ زعفرانی همراه با برنج و زرشک شیرین و ترش.",
+                appetizers: "پیش غذاها",
+                kashk_name: "کشک بادمجان",
+                kashk_desc: "دیپ بادمجان سرخ شده، کشک و پیاز داغ. همراه با نان.",
+                mast_name: "ماست و خیار",
+                mast_desc: "دیپ ماست و خیار تازه با نعنا و سبزیجات.",
+                tahdig_name: "ته دیگ",
+                tahdig_desc: "برنج زعفرانی ترد ته قابلمه. یک غذای لذیذ ایرانی!",
+                footer: "باغ شیراز | خیابان زعفران ۱۲۳، تهران | (۵۵۵) ۹۸۷-۶۵۴۳",
+                toggle_lang: "English"
+            }
+        };
+
+        // --- Element Selectors ---
+        const langToggleButton = document.getElementById('lang-toggle');
+        let currentLang = 'en';
+
+        // --- Event Listeners ---
+        langToggleButton.addEventListener('click', () => {
+            currentLang = currentLang === 'en' ? 'fa' : 'en';
+            updateText();
+        });
+
+        // --- Functions ---
+        function updateText() {
+            // Set text direction for the page
+            document.documentElement.setAttribute('dir', currentLang === 'fa' ? 'rtl' : 'ltr');
+
+            // Update all elements that have a data-key attribute
+            document.querySelectorAll('[data-key]').forEach(element => {
+                const key = element.getAttribute('data-key');
+                if (translations[currentLang][key]) {
+                    element.textContent = translations[currentLang][key];
+                }
+            });
+        }
+
+        // --- Initial Load ---
+        // Set the initial text on the page when it first loads
+        updateText();
+
+    </script>
+</body>
+</html>
